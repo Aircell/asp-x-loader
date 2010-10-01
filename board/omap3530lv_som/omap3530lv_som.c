@@ -339,7 +339,7 @@ void sdrc_ddr (struct sdram_timings *p)
 
 	/* No idle ack and RESET enable */
 	__raw_writel (0x12, SDRC_SYSCONFIG);
-	while (!__raw_readl (SDRC_SYSSTATUS))
+	while (!__raw_readl (SDRC_STATUS))
 		asm ("nop");
 
 	/* No idle ack and RESET disable */
@@ -357,7 +357,7 @@ void sdrc_ddr (struct sdram_timings *p)
 	__raw_writel (p->mcfg[1], SDRC_MCFG_1);
 
 	/* SDRC RFR_CTRL */
-	__raw_writel (p->rfr[0], SDRC_RFR_CTRL);
+	__raw_writel (p->rfr[0], SDRC_RFR_CTRL_0);
 	__raw_writel (p->rfr[1], SDRC_RFR_CTRL_1);
 
 	/* SDRC ACTIMA */
@@ -461,7 +461,7 @@ void config_3430sdram_ddr (void)
 		__raw_writel (MICRON_SDRC_ACTIM_CTRLB_0, SDRC_ACTIM_CTRLB_0);
 	}
 
-	__raw_writel (SDP_SDRC_RFR_CTRL, SDRC_RFR_CTRL);
+	__raw_writel (SDP_SDRC_RFR_CTRL, SDRC_RFR_CTRL_0);
 	__raw_writel (SDP_SDRC_POWER_POP, SDRC_POWER);
 
 	/* init sequence for mDDR/mSDR using manual commands (DDR is different) */

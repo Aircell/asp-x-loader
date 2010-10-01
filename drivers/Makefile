@@ -40,6 +40,14 @@ ifeq ($(BOARD), omap3530beagle)
 OBJS 	+= k9f1g08r0a.o
 endif
 
+ifeq ($(BOARD), omap3530lv_som)
+OBJS 	+= k9f1g08r0a.o
+else
+# LV SOM/Torpedo doesn't have OneNand...
+OBJS	+= onenand.o 
+endif
+
+
 ifeq ($(BOARD), omap3evm)
 OBJS 	+= k9f1g08r0a.o
 endif

@@ -63,6 +63,9 @@
 /* CONTROL */
 #define OMAP34XX_CTRL_BASE		(OMAP34XX_L4_IO_BASE+0x2000)
 
+/* RESET/power management */
+#define OMAP34XX_PRM_BASE		(OMAP34XX_L4_IO_BASE+0x7200)
+
 /* TAP information  dont know for 3430*/
 #define OMAP34XX_TAP_BASE		(0x49000000) /*giving some junk for virtio */
 

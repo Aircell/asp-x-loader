@@ -2,7 +2,7 @@
 # (C) Copyright 2010
 # Logic PD, <www.logicpd.com>
 #
-# LV_SOM/Torpedo board uses OMAP3430 (ARM-CortexA8) cpu
+# LV_SOM/Torpedo board uses OMAP3530 (ARM-CortexA8) cpu
 # see http://www.logicpd.com/ for more information
 #
 # LV_SOM/Torpedo has 1 bank of 128MiB or 256MiB on CS0
