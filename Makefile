@@ -80,7 +80,7 @@ SUBDIRS	=
 #########################################################################
 #########################################################################
 
-ALL = x-load.bin System.map
+ALL = x-load.bin signGP System.map
 
 all:		$(ALL)
 
@@ -105,6 +105,9 @@ System.map:	x-load
 
 oneboot:	x-load.bin
 		scripts/mkoneboot.sh
+
+signGP: 	scripts/signGP.c
+	$(HOSTCC) -o scripts/$@ $<
 
 #########################################################################
 else
@@ -170,7 +173,7 @@ omap4430panda_config :    unconfig
 clean:
 	find . -type f \
 		\( -name 'core' -o -name '*.bak' -o -name '*~' \
-		-o -name '*.o'  -o -name '*.a'  \) -print \
+		-o -name '*.o'  -o -name '*.a' -o -name signGP \) -print \
 		| xargs rm -f
  
 clobber:	clean
@@ -180,7 +183,7 @@ clobber:	clean
 		| xargs rm -f
 	rm -f $(OBJS) *.bak tags TAGS
 	rm -fr *.*~
-	rm -f x-load x-load.map $(ALL) 
+	rm -f x-load x-load.map x-load.bin.ift $(ALL) 
 	rm -f include/asm/proc include/asm/arch
 
 mrproper \
