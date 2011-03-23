@@ -5,7 +5,7 @@ target=x-load.bin
 
 workspace=$PWD/..
 PATH=/usr/lib/jvm/java-1.5.0-sun/bin:/usr/bin:/bin
-PATH+=:$workspace/android-kernel/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin
+PATH+=:$workspace/cs-android-kernel/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin
 
 exec &> OUT
 
