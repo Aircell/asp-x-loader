@@ -30,7 +30,7 @@ if [ $? -ne 0 ] || [ ! -e $target ]; then
 fi
 
 ## Install
-INSTALLDIR=$workspace/out
+INSTALLDIR=$workspace/../install.d
 [ -d $INSTALLDIR ] || mkdir -p $INSTALLDIR
 cp $target $INSTALLDIR
 
