@@ -1,7 +1,7 @@
 #!/bin/bash -eu
 # Build x-loader
 
-target=x-load.bin
+target=$PWD/MLO
 
 workspace=$PWD/..
 PATH=/usr/lib/jvm/java-1.5.0-sun/bin:/usr/bin:/bin
@@ -27,9 +27,13 @@ if [ $? -ne 0 ] || [ ! -e $target ]; then
   exit 1
 fi
 
-# Install
+## Install
 scripts/signGP
 cp x-load.bin.ift MLO
+
+INSTALLDIR=$workspace/out
+[ -d $INSTALLDIR ] || mkdir -p $INSTALLDIR
+cp $target $INSTALLDIR
 
 echo SUCCESS
 
