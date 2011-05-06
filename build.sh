@@ -1,17 +1,18 @@
 #!/bin/bash -eu
 # Build x-loader
 
-target=$PWD/MLO
+source ~/.bash-android
 
+target=$PWD/MLO
 workspace=$PWD/..
-PATH=/usr/lib/jvm/java-1.5.0-sun/bin:/usr/bin:/bin
-PATH+=:$workspace/cs-android-kernel/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin
+
+make="make -j4"
 
 #exec &> OUT
 
 # Preconfigure
 if [ ! -e include/config.mk ]; then
-  make omap3530lv_som_config
+  $make omap3530lv_som_config
 fi
 
 # Erase existing binary
@@ -20,7 +21,7 @@ if [ -e $target ]; then
 fi
 
 # Build
-make CROSS_COMPILE=arm-eabi- all
+$make CROSS_COMPILE=arm-eabi- all
 scripts/signGP
 cp x-load.bin.ift MLO
 
