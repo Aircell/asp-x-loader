@@ -1,10 +1,11 @@
 #!/bin/bash -eu
 # Build x-loader
 
-source ~/.bash-android
+if [ -f ../bin/bash-android ]; then
+  source ../bin/bash-android
+fi
 
 target=$PWD/MLO
-workspace=$PWD/..
 
 make="make -j4"
 
@@ -29,11 +30,6 @@ if [ $? -ne 0 ] || [ ! -e $target ]; then
   echo FAIL
   exit 1
 fi
-
-## Install
-INSTALLDIR=$workspace/../install.d
-[ -d $INSTALLDIR ] || mkdir -p $INSTALLDIR
-cp $target $INSTALLDIR
 
 echo SUCCESS
 
