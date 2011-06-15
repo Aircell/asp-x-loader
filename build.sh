@@ -2,7 +2,7 @@
 # Build x-loader
 
 [ -f ../bin/bash-android ] && source ../bin/bash-android
-[ -f ~/.bash-android ] && source [ ~/.bash-android ]
+[ -f ~/.bash-android ] && source ~/.bash-android
 
 target=$PWD/MLO
 
