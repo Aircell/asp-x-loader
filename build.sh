@@ -1,9 +1,8 @@
 #!/bin/bash -eu
 # Build x-loader
 
-if [ -f ../bin/bash-android ]; then
-  source ../bin/bash-android
-fi
+[ -f ../bin/bash-android ] && source ../bin/bash-android
+[ -f ~/.bash-android ] && source [ ~/.bash-android ]
 
 target=$PWD/MLO
 
