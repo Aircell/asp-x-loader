@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 # Build x-loader
 
-[ -f ../bin/bash-android ] && source ../bin/bash-android
 [ -f ~/.bash-android ] && source ~/.bash-android
+[ -f ../bin/bash-android ] && source ../bin/bash-android
 
 target=$PWD/MLO
 
@@ -23,7 +23,7 @@ fi
 # Build
 $make CROSS_COMPILE=arm-eabi- all
 scripts/signGP
-cp x-load.bin.ift MLO
+cp x-load.bin.ift $target
 
 if [ $? -ne 0 ] || [ ! -e $target ]; then
   echo FAIL
