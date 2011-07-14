@@ -6,22 +6,16 @@
 
 target=$PWD/MLO
 
-make="make -j4"
+make="make -j4 CROSS_COMPILE=arm-eabi- "
 
 #exec &> OUT
 
 # Preconfigure
-if [ ! -e include/config.mk ]; then
-  $make omap3530lv_som_config
-fi
-
-# Erase existing binary
-if [ -e $target ]; then
-  rm -rf $target
-fi
+$make mrproper
+$make omap3530lv_som_config
 
 # Build
-$make CROSS_COMPILE=arm-eabi- all
+$make CROSS_COMPILE=arm-eabi- ${*:-all}
 scripts/signGP
 cp x-load.bin.ift $target
 
