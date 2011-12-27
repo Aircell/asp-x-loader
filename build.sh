@@ -15,7 +15,7 @@ $make mrproper
 $make omap3530lv_som_config
 
 # Build
-$make CROSS_COMPILE=arm-eabi- ${*:-all}
+$make ${*:-all}
 scripts/signGP
 cp x-load.bin.ift $target
 
