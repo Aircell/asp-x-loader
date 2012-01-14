@@ -58,7 +58,9 @@
 #define OOB_SIZE		64
 #define MAX_NUM_PAGES		64
 
+/* JFK Use HW ECC in u-boot to allow upgrades from Linux
 #define ECC_CHECK_ENABLE
+*/
 #define ECC_SIZE		24
 #define ECC_STEPS		3
 

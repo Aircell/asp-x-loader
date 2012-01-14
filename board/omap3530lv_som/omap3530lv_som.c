@@ -1091,6 +1091,15 @@ int nand_init (void)
 		}
 	}
 #endif
+
+
+	/* Turn on hardware ECC */
+        /* Clear all ECC | Enable Reg1 */
+        __raw_writel((0x00000001<<8) | 0x00000001, GPMC_BASE + GPMC_ECC_CONTROL);
+
+        /* ECCSIZE1=512 | Select eccResultsize[0-3] */
+        __raw_writel((0xFF<<22 | 0x0F), GPMC_BASE + GPMC_ECC_SIZE_CONFIG);
+	
 	return 0;
 }
 
